@@ -1,0 +1,7 @@
+c:\users\brad mandery\source\repos\EmailSystem\EmailSystem\bin\Debug\EmailSystem.exe.config
+c:\users\brad mandery\source\repos\EmailSystem\EmailSystem\bin\Debug\EmailSystem.exe
+c:\users\brad mandery\source\repos\EmailSystem\EmailSystem\bin\Debug\EmailSystem.pdb
+c:\users\brad mandery\source\repos\EmailSystem\EmailSystem\obj\Debug\EmailSystem.csprojResolveAssemblyReference.cache
+c:\users\brad mandery\source\repos\EmailSystem\EmailSystem\obj\Debug\EmailSystem.csproj.CoreCompileInputs.cache
+c:\users\brad mandery\source\repos\EmailSystem\EmailSystem\obj\Debug\EmailSystem.exe
+c:\users\brad mandery\source\repos\EmailSystem\EmailSystem\obj\Debug\EmailSystem.pdb
