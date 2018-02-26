@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmailAccount.cs" />
+    <Compile Include="EmailMessage.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
@@ -52,7 +53,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EmailAccountFiles\EmailAccountIDS.txt" />
     <Content Include="EmailAccountFiles\EmailAccounts.txt" />
+    <Content Include="EmailAccountFiles\Messages.txt" />
+    <Content Include="EmailAccountFiles\PersonDB.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
