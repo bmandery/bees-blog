@@ -87,7 +87,10 @@ namespace EmailSystem
                     returnMessages.SetValue(messages[x], messageRecordIndex);
                     messageRecordIndex++;
                 }
+                
             }
+
+            Array.Resize(ref returnMessages, messageRecordIndex);
 
             //return a string array of messages
             return returnMessages;
@@ -146,7 +149,7 @@ namespace EmailSystem
 
         public static string[] GetEmailAddress()
         {
-            System.IO.StreamReader sr = new System.IO.StreamReader(@"../../EmailAccountFiles/EmailAccounts.txt");
+            System.IO.StreamReader sr = new System.IO.StreamReader(@"../../EmailAccountFiles/EmailAccountIDS.txt");
             string file = sr.ReadToEnd();
             sr.Close();
             sr.Dispose();
@@ -167,8 +170,9 @@ namespace EmailSystem
             {
                 //Account Records
                 string[] accountRecords = emailAccounts[x].Split(',');
+                string[] userID = accountRecords[0].Split(':');
                 string[] emailAddress = accountRecords[1].Split(':');
-                returnEmailAddresses.SetValue(emailAddress[1].ToString(), x);
+                returnEmailAddresses.SetValue(userID[1].ToString() +":"+emailAddress[1].ToString(), x);
             }
 
             return returnEmailAddresses;

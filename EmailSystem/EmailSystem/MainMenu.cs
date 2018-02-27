@@ -25,13 +25,15 @@ namespace EmailSystem
         }
 
 
+        //Our main menu after being authenticated
         public static string DisplayMainMenu()
         {
             Console.WriteLine("1.View Inbox");
             Console.WriteLine("2.Create New Email");
             Console.WriteLine("3.View Sent Items");
             Console.WriteLine("4.View Trash");
-            Console.WriteLine("5.Logout");
+            Console.WriteLine("5.View Profile");
+            Console.WriteLine("6.Logout");
             Console.Write("=>>");
             return Console.ReadLine();
         }
