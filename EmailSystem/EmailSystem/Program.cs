@@ -153,28 +153,33 @@ namespace EmailSystem
                 }
 
 
-                while (true)
+                if (myMessages.Length > 0)
                 {
-                    Console.Write("Enter ID to read or type \"exit\" to return to previous menu=>>");
-                    string input = Console.ReadLine();
-                    if (input.ToLower() == "exit")
+                    while (true)
                     {
-                        Console.Clear();
-                        return;
-                    }
+                        Console.Write("Enter ID to read or type \"exit\" to return to previous menu=>>");
+                        string input = Console.ReadLine();
+                        if (input.ToLower() == "exit")
+                        {
+                            Console.Clear();
+                            return;
+                        }
 
-                    int intUserInput = Int32.Parse(input.ToString());
-                    if (intUserInput <= myMessages.Length)
-                    {
-                        Console.Clear();
-                        string[] myMessageRecord = myMessages[intUserInput-1].Split(',');
-                        string[] myMessageBody = myMessageRecord[3].Split(':');
-                        Console.WriteLine(myMessageBody[1].ToString());
-                        Console.ReadKey();
-                        Console.Clear();
-                        break;
+                        int intUserInput = Int32.Parse(input.ToString());
+                        if (intUserInput <= myMessages.Length)
+                        {
+                            Console.Clear();
+                            string[] myMessageRecord = myMessages[intUserInput - 1].Split(',');
+                            string[] myMessageBody = myMessageRecord[3].Split(':');
+                            Console.WriteLine(myMessageBody[1].ToString());
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+                        }
                     }
                 }
+                Console.Clear();
+                return;
             }
         }
 

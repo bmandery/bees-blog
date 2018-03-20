@@ -12,3 +12,10 @@ C:\Users\brad.mandery\Documents\GitHub_WIP\bees-blog\EmailSystem\EmailSystem\obj
 C:\Users\brad.mandery\Documents\GitHub_WIP\bees-blog\EmailSystem\EmailSystem\obj\Debug\EmailSystem.csproj.CoreCompileInputs.cache
 C:\Users\brad.mandery\Documents\GitHub_WIP\bees-blog\EmailSystem\EmailSystem\obj\Debug\EmailSystem.exe
 C:\Users\brad.mandery\Documents\GitHub_WIP\bees-blog\EmailSystem\EmailSystem\obj\Debug\EmailSystem.pdb
+C:\Users\Brad Mandery\Documents\GitHub\bees-blog\EmailSystem\EmailSystem\bin\Debug\EmailSystem.exe.config
+C:\Users\Brad Mandery\Documents\GitHub\bees-blog\EmailSystem\EmailSystem\bin\Debug\EmailSystem.exe
+C:\Users\Brad Mandery\Documents\GitHub\bees-blog\EmailSystem\EmailSystem\bin\Debug\EmailSystem.pdb
+C:\Users\Brad Mandery\Documents\GitHub\bees-blog\EmailSystem\EmailSystem\obj\Debug\EmailSystem.csprojResolveAssemblyReference.cache
+C:\Users\Brad Mandery\Documents\GitHub\bees-blog\EmailSystem\EmailSystem\obj\Debug\EmailSystem.csproj.CoreCompileInputs.cache
+C:\Users\Brad Mandery\Documents\GitHub\bees-blog\EmailSystem\EmailSystem\obj\Debug\EmailSystem.exe
+C:\Users\Brad Mandery\Documents\GitHub\bees-blog\EmailSystem\EmailSystem\obj\Debug\EmailSystem.pdb

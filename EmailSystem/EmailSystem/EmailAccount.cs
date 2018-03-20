@@ -77,6 +77,8 @@ namespace EmailSystem
             string[] returnMessages = new string[] { };
             Array.Resize(ref returnMessages, messages.Length);
             int messageRecordIndex = 0;
+            int messageRecordToNegate = 0;
+            Boolean blnMessageSet = false;
             //Find messages for the given account
             for(int x = 0; x<=messages.Length-1; x++)
             {
@@ -86,7 +88,18 @@ namespace EmailSystem
                 {
                     returnMessages.SetValue(messages[x], messageRecordIndex);
                     messageRecordIndex++;
+                    blnMessageSet = true;
                 }
+                else
+                {
+                    ///Array.Resize(ref returnMessages, messages.Length - 1);
+                    messageRecordToNegate++;
+                }               
+            }
+
+            if(!blnMessageSet)
+            {
+                Array.Resize(ref returnMessages, messageRecordToNegate=messageRecordIndex);
             }
 
             //return a string array of messages
@@ -108,7 +121,6 @@ namespace EmailSystem
             get => mstrPassword;
             private set => mstrPassword = value;
         }
-
 
 
         #region Static Methods
