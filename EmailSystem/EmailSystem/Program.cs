@@ -49,20 +49,20 @@ namespace EmailSystem
         */
         static void Main(string[] args)
         {
-
+            //Kick things off by displaying the logon screen
             DPLogonMenu();
             Console.ReadKey();
         }
 
+        //Our log on screen
         static void DPLogonMenu()
         {
             while (true)
             {
                 string userEmail = string.Empty;
-                userEmail = MainMenu.DisplayLogOn();
                 while (true)
                 {
-
+                    userEmail = MainMenu.DisplayLogOn();
                     //Check for a valid email
                     if (userEmail.Contains("@") && (userEmail.Contains(".com") || userEmail.Contains(".net")))
                     {
@@ -71,7 +71,7 @@ namespace EmailSystem
                     }
                     else
                     { userEmail = ""; }
-                    userEmail = MainMenu.DisplayLogOn();
+                    
                 }
 
                 //We have our version of a valid email address entered
@@ -85,10 +85,10 @@ namespace EmailSystem
                     if (userPassword.Trim().Length != 0)
                         break;
                 }
-
+                //Call our static method to make sure the email account is valid
                 if (EmailAccount.AccountValid(userEmail, userPassword))
                 {
-                    //Create our Email account which in turn will create our person
+                    //Create our Email account instance which in turn will create our person
                     _account = new EmailAccount(userEmail, userPassword);
                     p = new Person(_account);
                     DPMainMenu();
@@ -123,7 +123,7 @@ namespace EmailSystem
                         DPCreateNewEmail();
                         break;
 
-                    case "5":
+                    case "6":
                         //Clear all variables and redisplay Logon menu
                         Console.Clear();
                         DPLogonMenu();
@@ -137,11 +137,15 @@ namespace EmailSystem
         static void DPInbox()
         {
             string[] myMessages = _account.GetMessages();
+
             while (true)
             {
+                Console.Clear();
+                Console.WriteLine("Enter the ID of the message you would like to read");
                 //Get all the messages for this account
+
                 
-                for(int x = 0; x<=myMessages.Length-1; x++)
+                for (int x = 0; x<=myMessages.Length-1; x++)
                 {
                     string[] myMessageRecords = myMessages[x].Split(',');
                     string[] myMessageID = myMessageRecords[0].Split(':');
@@ -149,7 +153,7 @@ namespace EmailSystem
                     string[] myMessageSubject = myMessageRecords[2].Split(':');
                     string[] myMessageBody = myMessageRecords[3].Split(':');
 
-                    Console.WriteLine("MessageID: " + myMessageID[1].ToString() + "                            Subject: " + myMessageSubject[1].ToString());
+                    Console.WriteLine("MessageID: " + (x+1).ToString() + "                            Subject: " + myMessageSubject[1].ToString());
                 }
 
 
@@ -185,21 +189,27 @@ namespace EmailSystem
 
         static void DPCreateNewEmail()
         {
+            //Clear the console
             Console.Clear();
-            
+
+            //Couple local variables that we'll use when creating the email object
+            int intToAccountID = 0;
             string strTo = string.Empty;
-            //Get To address
+
+            //Get To address from the user
             while (strTo.Trim().Length == 0)
             {
                 Console.Write("To: ");
                 strTo = Console.ReadLine();
 
                 //Make sure it's a valid email address in our system
-                foreach(string s in EmailAccount.GetEmailAddress())
+                foreach (string s in EmailAccount.GetEmailAddress())
                 {
-                    if(s == strTo)
+                    string[] emailAddress = s.Split(':');
+                    if (emailAddress[1].ToLower() == strTo)
                     {
-                        //Valid Email
+                        //Valid Email, sent the account id of who it is going to
+                        intToAccountID = Int32.Parse(emailAddress[0].ToString());
                         break;
                     }
                 }
@@ -208,7 +218,7 @@ namespace EmailSystem
             Console.WriteLine();
             //Get Subject
             string strSubject = string.Empty;
-            while(strSubject.Trim().Length == 0)
+            while (strSubject.Trim().Length == 0)
             {
                 Console.Write("Subject: ");
                 strSubject = Console.ReadLine();
@@ -216,15 +226,20 @@ namespace EmailSystem
 
             Console.WriteLine();
             string strMessageBody = string.Empty;
-            while(strMessageBody.Trim().Length == 0)
+            while (strMessageBody.Trim().Length == 0)
             {
                 Console.Write("Message: ");
                 strMessageBody = Console.ReadLine();
             }
 
-            Console.WriteLine(strTo);
-            Console.WriteLine(strSubject);
-            Console.WriteLine(strMessageBody);
+            //Create our email message.
+            EmailMessage message = new EmailMessage(intToAccountID, strSubject, strMessageBody, DateTime.Now);
+            //Send off the message
+            if (message.Send())
+            {
+                Console.Clear();
+                Console.WriteLine("Your message have been sent, press anykey to return to main menu");
+            }
 
             Console.ReadKey();
         }
